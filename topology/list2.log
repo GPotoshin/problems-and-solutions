@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.5.12)  23 FEB 2024 23:08
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.5.12)  24 FEB 2024 01:09
  restricted system commands enabled.
 **list2.tex
 (./list2.tex
@@ -784,29 +784,61 @@ Overfull \hbox (9.01746pt too wide) in paragraph at lines 125--125
 екающихся
  []
 
+
+Overfull \hbox (1.70299pt too wide) in paragraph at lines 134--142
+\TU/CambriaMath(1)/m/n/10 (𝐹[]) ⊔ (𝑈[])[]$ \TU/LinuxLibertineO(0)/m/n/1
+0 покрытие $\TU/CambriaMath(1)/m/n/10 𝑋$ \TU/LinuxLibertineO(0)/m/n/
+10 и в нем по компактности можно выделить ко
+нечное подпокрытие
+ []
+
+
+Overfull \hbox (14.25313pt too wide) in paragraph at lines 147--149
+[]$\TU/CambriaMath(1)/m/n/10 ⇒∶$ \TU/LinuxLibertineO(0)/m/n/10 Пусть $
+\TU/CambriaMath(1)/m/n/10 𝑓$ \TU/LinuxLibertineO(0)/m/n/10 непрерыв
+но. Проекции в данном случае непрерывны, та
+к как они стрелки категории
+ []
+
+
+Overfull \hbox (14.49944pt too wide) in paragraph at lines 160--162
+[]\TU/LinuxLibertineO(0)/b/n/10 Пусть отображения тополо
+гических пространств $\TU/CambriaMath(1)/m/n/10 𝑓 ∶ 
+𝑋[] ⟶ 𝑋[]$ \TU/LinuxLibertineO(0)/b/n/10 и $\TU/CambriaMath(1)/m/n/10 
+𝑔 ∶ 𝑌[] ⟶ 𝑌[]$ \TU/LinuxLibertineO(0)/b/n/10 непрерывны.
+ []
+
+
+Overfull \hbox (26.95636pt too wide) in paragraph at lines 166--173
+\TU/LinuxLibertineO(0)/b/n/10 естественной проекции $[][]$ 
+индуцирует гомеоморфизм $\TU/CambriaMath(1)/m/n/10 𝑋 
+≃ Γ[]$\TU/LinuxLibertineO(0)/b/n/10 . \TU/LinuxLibertineO(0)/m/n/10 Всп
+омним, что у отображений
+ []
+
 [2] (./list2.aux)
 Package rerunfilecheck Info: File `list2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 16327 strings out of 478285
+ 16333 strings out of 478285
  100000,1977958 words of node,token memory allocated
  493 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 53 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 2:500,3:416,4:11,5:848,6:58,7:11994,8:33,9:577,10:7
- 36107 multiletter control sequences out of 65536+600000
- 69 fonts using 31509491 bytes
+   avail lists: 2:500,3:416,4:11,5:848,6:58,7:11994,8:71,9:577,10:7
+ 36110 multiletter control sequences out of 65536+600000
+ 71 fonts using 32275723 bytes
  72i,6n,114p,265b,426s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fonts/Cambri
 aMath.ttc></Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fo
 nts/LinLibertine_RB.otf></Users/giorno/Library/Fonts/LinLibertine_R.otf></Users/
 giorno/Library/Fonts/LinLibertine_RI.otf>
-Output written on list2.pdf (2 pages, 118714 bytes).
+Output written on list2.pdf (2 pages, 123510 bytes).
 
-PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 131072)
+PDF statistics: 67 PDF objects out of 1000 (max. 8388607)
+ 44 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
