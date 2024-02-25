@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.5.12)  24 FEB 2024 01:09
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023)  (format=lualatex 2023.5.12)  25 FEB 2024 10:57
  restricted system commands enabled.
 **list2.tex
 (./list2.tex
@@ -809,36 +809,45 @@ Overfull \hbox (14.49944pt too wide) in paragraph at lines 160--162
  []
 
 
-Overfull \hbox (26.95636pt too wide) in paragraph at lines 166--173
-\TU/LinuxLibertineO(0)/b/n/10 естественной проекции $[][]$ 
-индуцирует гомеоморфизм $\TU/CambriaMath(1)/m/n/10 𝑋 
-≃ Γ[]$\TU/LinuxLibertineO(0)/b/n/10 . \TU/LinuxLibertineO(0)/m/n/10 Всп
-омним, что у отображений
+Overfull \hbox (2.36873pt too wide) in paragraph at lines 166--176
+[]\TU/LinuxLibertineO(0)/m/n/10 Вспомним, что у отображен
+ий из каждой точки выходит ровно одна стре
+лка, а значит каждая
  []
 
-[2] (./list2.aux)
+
+Overfull \hbox (7.51207pt too wide) in paragraph at lines 178--178
+[]\TU/LinuxLibertineO(0)/b/n/10 Докажите, что топология н
+а топологическом пространстве $\TU/CambriaMath(1)/m/
+n/10 𝑋$ \TU/LinuxLibertineO(0)/b/n/10 дискретна тогда и то
+лько
+ []
+
+[2]
+Missing character: There is no а (U+0430) in font cmmi10!
+[3] (./list2.aux)
 Package rerunfilecheck Info: File `list2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 16333 strings out of 478285
+ 16336 strings out of 478285
  100000,1977958 words of node,token memory allocated
  493 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 7 attribute, 53 glue_spec,
  7 attribute_list, 1 write nodes
-   avail lists: 2:500,3:416,4:11,5:848,6:58,7:11994,8:71,9:577,10:7
+   avail lists: 2:506,3:416,4:11,5:848,6:58,7:11994,8:71,9:577,10:7
  36110 multiletter control sequences out of 65536+600000
- 71 fonts using 32275723 bytes
+ 71 fonts using 32275587 bytes
  72i,6n,114p,265b,426s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fonts/Cambri
 aMath.ttc></Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fo
 nts/LinLibertine_RB.otf></Users/giorno/Library/Fonts/LinLibertine_R.otf></Users/
 giorno/Library/Fonts/LinLibertine_RI.otf>
-Output written on list2.pdf (2 pages, 123510 bytes).
+Output written on list2.pdf (3 pages, 126100 bytes).
 
-PDF statistics: 67 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 131072)
+PDF statistics: 73 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
