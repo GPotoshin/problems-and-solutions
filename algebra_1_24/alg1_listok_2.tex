@@ -1,0 +1,193 @@
+\documentclass{article}
+\usepackage[a4paper,left=3cm,right=3cm,top=1cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[russian]{babel}
+
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{graphicx}
+\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\setlength{\parindent}{0mm}
+
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\usepackage{unicode-math}
+\setmathfont{Cambria Math}
+
+\title{
+\textit{\small{Георгий Потошин, 2024}}\\
+\vspace{0.3ex}
+\textit{\huge{Алгебра I, листочек 2}}\vspace{1ex}
+}
+
+\date{\vspace{-10ex}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item \textbf{Докажите, что подгруппа индекса 2 нормальна.}
+
+        Пусть $H\leq G$ – подгруппа индекса 2. Тогда у неё всего два правых и
+        два левых смежных класса. $G=H\sqcup gH=H\sqcup Hg$ так как их всего
+        двое и они оба дополнения к подгруппе, то они очевидно совпадут $gH=Hg$.
+        Тогда $(gH)g^{-1}=(Hg)g^{-1}=H$, а значит $H$ нормальна в $G$.
+
+    \item \textbf{Пусть дана цепочка подгрупп $K\leq H\leq G$. Покажите, что
+        $(G:K)=(G:H)(H:K)$.}
+
+        Обозначим за $\text{L}(G,H)$ множество левых классов смежности $H$ в $G$,
+        а за $\text{TL}(G,H)$ eё трансверсаль. Тогда построим отображение:
+        \begin{align*}
+            \varphi:\;&\text{TL}(G,H)\times\text{TL}(H,K)\longrightarrow \text{L}(G, K)\\
+            &(g,h)\mapsto ghK\\
+        \end{align*}
+        Покажем, что оно сюрьективно. Пусть $g\in G$, тогда $g=g'h$ для
+        некоторого $g'\in\text{TL}(G,H)$ и $h\in H$. А $h=h'k$ для $h'\in
+        \text{TL}(H,K)$, тогда $gK=g'h'K$. Теперь пусть $ghK=g'h'K$, так как
+        $hK,h'K\in H$, то $gH\cap g'H\neq\varnothing$, a значит $g=g'$,
+        сократим на него. $hK=h'K$, тогда $h=h'$, а значит $\varphi$ – инъективно. Тогда
+        $(G:H)(H:K)=|\text{TL}(G,H)||\text{TL}(H,K)| = |\text{L}(G,K)|=(G:K)$.
+
+    \item \textbf{Пусть дана цепочка нормальных подгрупп $K\trianglelefteq H\trianglelefteq
+        G$. Верно ли, что $K$ нормальна в $G$?}
+
+        Это не верно, приведем контр пример. Пусть $G=A_4$, возьмём 2 её абелевы
+        подгруппы $H=\{e,(12)(34),(13)(24),(14)(23)\}$ и $K=\{e,(12)(34)\}$. Так
+        как $H$ абелева, то очевидно, что $K$ в ней нормальна. Проверим, что
+        $H$ нормальна в $G$:
+        \begin{align*}
+            (abc)&(ab)(cd)(cba)=(ac)(bd)\\
+            (abcd)&(ab)(cd)(dcba)=(ad)(cb)\\
+            (ab)&(ab)(cd)(ab)=(cd)(ab)\\
+            (bc)&(ab)(cd)(bc)=(bd)(ac)\\
+            (abcd)&(ac)(bd)(dcba)=(ac)(bd)\\
+        \end{align*}
+        Но $K$ не нормальна в $G$, так как например $(123)(12)(34)(321)=(13)(42)$.
+
+    \item \textbf{(Теорема фон Дика) Пусть дана цепочка подгрупп $K\leq H\leq 
+        G$. Пусть $H$ и $K$ нормальны в $G$. Докажите, что $G/H\cong (G/K)/(H/K).$}
+
+        Обозначим каноничную проекцию $\pi: G\longrightarrow G/H$. Так как $K
+        \leq H=\text{Ker}(\pi)$, то $\pi$ индуцирует гомоморфизм $\pi':
+        G/K\longrightarrow G/H, gK\mapsto gH$, так как сдвиг $g$ на любой элемент
+        из $K$ не изменит значение после $\pi$. Заметим, что $\text{Ker}(\pi')=
+        \text{Ker}(\pi)/K = H/K$. Тогда запишем теорему о гомеоморфизме для $\pi'$,
+        $G/H=\text{Im}(\pi')\cong(G/K)/\text{Ker}(\pi')=(G/K)/(H/K)$.
+
+    \item \textbf{Пусть $G$ – группа, и пусть $S\subseteq G$ – подмножество.
+        Определим нормализатор множества $S$ в $G$ следующим образом:
+        \[N_S=\{g\in G\;|\;gSg^{−1}=S\}.\]
+        Определим централизатор множества $S$ в $G$ следующим образом:
+        \[Z_S ={g\in G\;|\;gs=sg\forall s\in S}.\]
+        Проверьте, что централизатор и нормализатор являются подгруппами.
+        Нормальны ли они?}
+
+        Нетрудно заметить, что $e\in N_s,Z_s$. Пусть $a,b\in N_S$, тогда
+        $abSb^{-1}a^{-1}=aSa^{-1}=S$, а значит $ab\in N_S$.
+        Пусть $a,b\in Z_S$, тогда $abs=asb=sab, \forall s\in S$, тогда и $ab\in
+        Z_S$. Теперь пусть $g\in N_S$, тогда $g^{-1}Sg=g^{-1}(gSg^{-1})g=S$,
+        а значит $g^{-1}\in N_S$ и $N_S$ – подгруппа. Также $g\in Z_S$ и $s\in S$
+        $g^{-1}s = g^{-1}sgg^{-1} = g^{-1}gsg^{-1}=sg^{-1}$, а значит $g^{-1}\in Z_S$
+        и $Z_S$ – подгруппа. Вообще говоря они не нормальны.
+        
+        Пусть $S_3=\{e,(12),(23),(31),(123),(321)\}$. $Z_{\{(12)\}}=\{e,(12)\}$,
+        что очевидно, и $N_{\{(12)\}}=\{e,(12)\}$, что чуть менее очевидно, но
+        можно проверить $(23)(12)(23)=(31)$ и $(123)(12)(321)=(13)$. Так вот
+        эта подгруппа не нормальна, так как есть например предыдущее равенство.
+
+    \item \textbf{Центром $Z_G$ группы $G$ называется подмножество элементов,
+        которые коммутируют со всеми элементами $G$. Проверьте, что центр
+        является нормальной подгруппой. Вычислите центр симметрической группы
+        $S_n$.}
+
+        Пусть $h\in Z_G$, тогда $ghg^{-1}=hgg^{-1}=h\in Z_G$, а значит $Z_G$
+        нормальна в $G$.
+
+        Пусть $g\in Z_{S_n}$, $n>2$ тогда $g$ раскладывается в произведение дизъюнктных
+        циклов $g=(\ldots)\ldots(\ldots)$, тогда если там будет цикл длинной
+        большей 2 $(abc\ldots)$, то умножение на $(ab)$ справа выкинет из него
+        $a$. $(abc\ldots)(ab)=(bc\ldots)$, а умножение слева выкинет $b$, 
+        $(ab)(abc\ldots)=(ac\ldots)$, поэтому эти два элемента не коммутируют,
+        a значит ни транспозиция, ни элементы с такими длинными циклами не будут
+        в центре. Тогда наверно $g$ содержит хотя бы 2 цикла длинной 2? Но тогда
+        найдется некоммутирующий 3 цикл $(abc)(ab)(cd)=(bdc)$, но $(ab)(cd)(abc)
+        =(acd)$. Тогда $Z_{S_n}=1$, кроме случая $Z_{S_2}=\mathbb{Z}_2$.
+
+    \item \textbf{Пусть $G_1$, $G_2$ – абелевы группы. Обозначим множество
+        гомоморфизмов из $G_1$ в $G_2$ через $\textnormal{Hom}(G_1, G_2)$.
+        \begin{itemize}
+            \item Определите естественную операцию сложения гомоморфизмов и
+                покажите, что $\textnormal{Hom}(G_1,G_2)$ обладает структурой
+                абелевой группы.
+            \item Вычислите $\textnormal{Hom}(\mathbb{Z}/n,\mathbb{Z}/m)$ для
+                $n,m\geq0$.
+        \end{itemize}}
+
+        Пусть $f,g\in\text{Hom}(G_1 G_2)$ положим $f+g=(x\mapsto f(x)\cdot g(x))$.
+        Очевидно, что эта операция ассоциативна. Единица тоже есть $e=1$. И
+        обратный $-f=(x\mapsto f(x)^{-1})$. Проверим корректность $(-f)(xy)=
+        f(xy)^{-1}=f(y)^{-1}f(x)^{-1}=f(x)^{-1}f(y)^{-1}=(-f)(x)\cdot(-f)(y)$,
+        а значит обратный – гомоморфизм. Проверим корректность суммы $(f+g)(xy)=
+        f(xy)g(xy)=f(x)f(y)g(x)g(y)=f(x)g(x)f(y)g(y)=(f+g)(x)\cdot(f+g)(y)$.
+        Проверим абелевость, $f+g=(x\mapsto f(x)g(x))=(x\mapsto g(x)f(x))=g+f$.
+
+        Теперь пусть $\varphi\in\text{Hom}(\mathbb{Z}_n,\mathbb{Z}_m)$. Тогда по
+        теореме о гомеоморфизме $\varphi$ распадается на каноничный эпиморфизм
+        $\pi:\mathbb{Z}_n\twoheadrightarrow \mathbb{Z}_n/\text{Ker}(\varphi)$, на
+        изоморфизм $\psi:\mathbb{Z}_n/\text{Ker}(\varphi)\leftrightarrow\text{Im}
+        (\varphi)\leq\mathbb{Z}_m$ и мономорфизма $i:\text{Im}(\varphi)
+        \hookrightarrow\mathbb{Z}_m$. Заметим, что $\text{Ker}(\varphi)\leq
+        \mathbb{Z}_n$, а значит $\text{Ker}(\varphi)=d\mathbb{Z}_n$ и
+        $\mathbb{Z}_n/\text{Ker}(\varphi)\cong\mathbb{Z}_d$, где $d|n$. Но так
+        как $\mathbb{Z}_d\hookrightarrow\mathbb{Z}_m$, а тогда $d|m$. Поэтому
+        задача гомоморфизма на самом деле однозначно сводится к выбору двух
+        натуральных чисел $d|n\wedge m$ и $k<d$, $k\wedge d=1$. (все гомоморфизмы
+        группы вычетов - умножения на взаимно простые с $d$ числа)
+        \vspace{-1ex}
+        \begin{center}
+        \begin{tikzcd}
+            \mathbb{Z}_n\arrow[two heads]{r}{\pi}&
+            \mathbb{Z}_d\arrow[leftrightarrow]{r}{\cdot k}&
+            \mathbb{Z}_d\arrow[hook]{r}{i}&\mathbb{Z}_m\\
+            \text{$[a]_n$}\arrow[mapsto]{r} & \text{$[a]_d$}\arrow[mapsto]{r}&
+            \text{$[ka]_d$}\arrow[mapsto]{r} & \text{$\frac{m}{d}[ka]_d$}\\
+        \end{tikzcd}
+        \end{center}
+        \vspace{-5ex}
+        Где $m/d[ka]_d=m/d(ka+d\mathbb{Z})=mka/d+m\mathbb{Z}=[mka/d]_m$.
+        Оно однозначно, так как для каждого гомоморфизма мы находим эти константы.
+        И разные константы дают разные гомоморфизмы. Тогда порядок $|\text{Hom}(
+        \mathbb{Z}_n,\mathbb{Z}_m)|=\sum_{d|n\wedge m}\varphi(d)=n\wedge m$.
+        при этом для $d=n\wedge m$ и $k=1$, $\varphi(1)=[m/d]_m$, то порядок
+        этого элемента очевидно $d$, а значит $\text{Hom}(\mathbb{Z}_n,\mathbb{Z}_m)
+        \cong\mathbb{Z}_{m\wedge n}$.
+
+    \item \textbf{Могут ли две неизоморфные группы иметь изоморфные нормальные
+        подгруппы и изоморфные фактор-группы по ним? Может ли группа иметь две
+        изоморфные нормальные подгруппы, фактор-группы по которым неизоморфны?
+        Может ли группа иметь неизоморфные нормальные подгруппы, фактор-группы
+        по которым изоморфны?}
+
+        Две неизоморфные группы могут иметь изоморфные нормальные подгруппы и
+        изоморфные фактор-группы по ним, например $\mathbb{Z}_4/2\mathbb{Z}_2
+        \cong \mathbb{Z}_2\times\mathbb{Z}_2/\langle 0,(1,1)\rangle$.
+
+        Группа может иметь две изоморфные нормальные подгруппы, фактор-группы по
+        которым неизоморфны, например $\mathbb{Z}_4\times\mathbb{Z}_2/0\times\mathbb{Z}_2
+        \cong\mathbb{Z}_4$, но $\mathbb{Z}_4\times\mathbb{Z}_2/\langle 0,2\rangle\times 0
+        \cong\mathbb{Z}_2\times\mathbb{Z}_2$.
+
+        Группа может иметь неизоморфные нормальные группы, фактор-группы по
+        которым изоморфны, например $\mathbb{Z}_4\times\mathbb{Z}_4/\mathbb{Z}_4
+        \times 0\cong\mathbb{Z}_4\times\mathbb{Z}_2/\langle0,2\rangle\times\mathbb{Z}_2$
+
+    \item \textbf{(Теорема Кэли) Докажите, что любая группа изоморфна подгруппе
+        симметрической группы.}
+
+        Пусть $G$ - группа, тогда рассмотрим каноничное левое $G$-действие на $G$.
+        Это действие является подгруппой симметрической группы $G$ как множества.
+\end{enumerate}
+\end{document}
