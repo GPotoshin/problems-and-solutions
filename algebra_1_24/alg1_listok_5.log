@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.10)  14 OCT 2024 18:32
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.10)  14 OCT 2024 18:29
  restricted system commands enabled.
-**alg1_listok_4.tex
-(./alg1_listok_4.tex
+**alg1_listok_5.tex
+(./alg1_listok_5.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
@@ -993,8 +993,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(./alg1_listok_4.aux)
-\openout1 = alg1_listok_4.aux
+(./alg1_listok_5.aux)
+\openout1 = alg1_listok_5.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
@@ -1052,10 +1052,10 @@ LaTeX Font Info:    ... okay on input line 27.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 27.
-(./alg1_listok_4.out) (./alg1_listok_4.out)
+(./alg1_listok_5.out) (./alg1_listok_5.out)
 \@outlinefile=\write4
 
-\openout4 = alg1_listok_4.out
+\openout4 = alg1_listok_5.out
 LaTeX Info: Redefining \th on input line 27.
 
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1104,41 +1104,40 @@ LaTeX Warning: No \author given.
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] [3] [4]
-Overfull \hbox (6.7571pt too wide) in paragraph at lines 439--453
-\TU/LinuxLibertineO(0)/m/n/10 те-ро-ва коль-ца ко-неч-но п
-о-рож-де-ны, то мы най-дем ко-неч-ное по-рож-д
-е-ние $\TU/CambriaMath(1)/m/n/10 𝑟(𝔞) = (𝑎[], 𝑎[], … , 𝑎[]
-)$\TU/LinuxLibertineO(0)/m/n/10 .
+[2] [3]
+Overfull \hbox (4.5762pt too wide) in paragraph at lines 375--376
+[]\TU/LinuxLibertineO(0)/b/n/10 Опи-ши-те мно-же-ство всех 
+на-ту-раль-ных чис-ла, пред-ста-ви-мых в ви-д
+е сум-мы двух квад-
  []
 
-[5] (./alg1_listok_4.aux)
+[4] [5] [6] [7] (./alg1_listok_5.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-Package rerunfilecheck Info: File `alg1_listok_4.out' has not changed.
+Package rerunfilecheck Info: File `alg1_listok_5.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29679 strings out of 476447
- 125027,1977958 words of node,token memory allocated
- 561 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 18 attribute, 54 glue_spec
-, 11 attribute_list, 2 write nodes
-   avail lists: 2:986,3:454,4:89,5:697,6:65,7:12209,8:61,9:867,10:24,11:1479
- 51089 multiletter control sequences out of 65536+600000
- 72 fonts using 32633219 bytes
- 116i,6n,114p,474b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 29689 strings out of 476447
+ 156291,1977958 words of node,token memory allocated
+ 644 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 53 attribute, 54 glue_spec
+, 28 attribute_list, 2 write nodes
+   avail lists: 2:946,3:324,4:57,5:477,6:56,7:13998,8:95,9:1151,10:17,11:1522
+ 51096 multiletter control sequences out of 65536+600000
+ 70 fonts using 31882875 bytes
+ 116i,12n,114p,474b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fonts/Cambri
 aMath.ttc></Users/giorno/Library/Fonts/CambriaMath.ttc></Users/giorno/Library/Fo
 nts/LinLibertine_RB.otf></Users/giorno/Library/Fonts/LinLibertine_R.otf></Users/
 giorno/Library/Fonts/LinLibertine_RI.otf>
-Output written on alg1_listok_4.pdf (5 pages, 150860 bytes).
+Output written on alg1_listok_5.pdf (7 pages, 162193 bytes).
 
-PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 33 named destinations out of 1000 (max. 131072)
+PDF statistics: 112 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 36 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
