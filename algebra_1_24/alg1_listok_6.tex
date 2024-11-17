@@ -16,6 +16,9 @@
 \usepackage{unicode-math}
 \setmathfont{Cambria Math}
 
+\newcommand{\mymat}{\mathcal{M\mkern-3mu a\mkern-0.3mu t}}
+
+
 \title{
 \textit{\small{Георгий Потошин, 2024}}\\
 \vspace{0.3ex}
@@ -28,7 +31,551 @@
 \maketitle
 
 \begin{enumerate}
-    \item \textbf{}
+    \item \textbf{Пусть $A$ – кольцо. Докажите изоморфизмы $A$-модулей:}
+
+        В общем случае на морфизмах между правами модулями нельзя
+        естественно ввести структуру модуля. Так как пусть $U,V$ –
+        правые $A$-модули. На $\text{Hom}_A(U,V)$ структуру левого
+        модуля c поэлементным действием не вводится, а именно
+        $f\in\text{Hom}_A(U,V),\,\lambda,\mu\in A,\,x\in U$
+        действие не с той стороны $(\lambda f)(x)=\lambda (f(x))=?$,
+        перенести левое действие на правое не возможно, так как
+        не выйдет модуль, а именно:
+        \begin{align*}
+            &(\lambda f)(x) = f(x)\lambda\\
+            &(\lambda\mu f)(x) = ((\lambda\mu)f)(x)=f(x)\lambda\mu\\
+            &(\lambda(\mu f))(x) = (\mu f)(x)\lambda = f(x)\mu\lambda
+        \end{align*}
+        где скаляры не обязаны коммутировать. Если попытаться ввести
+        структуру правого модуля, то действовать поэлементно слева также
+        бессмысленно, а с права мы получим
+        \begin{align*}
+            &(f\lambda)(x) = f(x)\lambda\\
+            &(f\lambda)(x\mu) = (f)(x\mu)\lambda=f(x)\mu\lambda\\
+            &(f\lambda)(x\mu) = (f\lambda)(x)\mu = f(x)\lambda\mu
+        \end{align*}
+        и мы теряем линейность.
+        \begin{enumerate}
+            \item $\text{Hom}_A(A,M)\cong M.$
+
+                Тем не менее если один из модулей – бимодуль, то эта проблема
+                разрешима. Пусть $M$ правый $A$-модуль. Мы будем
+                использовать факт, что $A$ - бимодуль, тогда введём на
+                $\text{Hom}_A(A,M)$ структуру правого $A$-модуля полагая
+                \begin{align*}
+                    (\phi\lambda)(x)&=\phi(\lambda x),\quad \phi\in\text{Hom}_A(A,M),\,\lambda\in A,\,x\in A\\
+                    (\phi+\psi)(x)&=\phi(x)+\psi(x),\quad \phi,\psi\in\text{Hom}_A(A,M),\,x\in A
+                \end{align*}
+                Аксиомы абелевой группы мы уже проверяли. Проверим линейность:
+                \[(f\lambda)(x+y\mu)=f(\lambda (x+y\mu))=f(\lambda x+\lambda y\mu)=f(\lambda x) + f(\lambda y)\mu=(f\lambda)(x)+(f\lambda)(y)\mu\]
+
+                Проверим аксиомы модуля
+                \begin{enumerate}
+                    \item $(f(\lambda\mu))(x)=f(\lambda\mu x)=(f\lambda)(\mu x)=((f\lambda)\mu))(x)$
+                    \item $(f1)(x)=f(1x)=f(x)$
+                    \item $((f+g)\lambda)(x)=(f+g)(\lambda x)=f(\lambda x)+g(\lambda x)=(f\lambda)(x)+(g\lambda)(x)=(f\lambda+g\lambda)(x)$
+                    \item $(f(\lambda+\mu))(x)=f((\lambda+\mu)x)=f(\lambda x+\mu x)=f(\lambda x)+f(\mu x)=(f\lambda)(x)+(f\mu)(x)=(f\lambda+f\mu)(x)$
+                \end{enumerate}
+                Так что у нас получился правый модуль. Построим отображение $\varphi:f\mapsto f(1)$.
+                Покажем, что оно линейное
+                \[\varphi(f+g\lambda)=(f+g\lambda)(1)=f(1)+g(\lambda)=f(1)+g(1)\lambda=\varphi(f)+\varphi(g)\lambda\]
+                Для каждого $m\in M$, можно построить отображение $f_m:k\in A\mapsto mk$. Оно линейно,
+                так как
+                \[f_m(k+l\lambda)=m(k+l\lambda)=mk+(ml)\lambda=f_m(k)+f_m(l)\lambda\]
+                Тогда $\varphi$ сюръективен. С другой стороны любой элемент из $\text{Hom}_A(A,M)$
+                однозначно определяется образом 1, а значит отображение инъективно. Мы построили изоморфизм.
+
+            \item $\text{Hom}_A(M_1\oplus M_2,N)\cong \text{Hom}_A(M_1,N)\oplus\text{Hom}_A(M_2,N)$
+                
+                Мы уже видели как вводить структуру правого модуля, если область бимодуль. Можно также ввести
+                структуру левого модуля, если кообласть является бимодулем. Пусть $f,g\in\text{Hom}_A(U,V)$,
+                где $U$ – правый модуль-$A$, $V$ – $S$-модуль-$A$ и $\lambda\in A$, $k,l\in S$ и $x\in U$.
+                Тогда положим
+                \[ (kf)(x)=kf(x) \]
+                Проверим линейность
+                \begin{align*}
+                    (kf)(x+y\lambda)&=k(f(x+y\lambda))=k(f(x)+f(y)\lambda)=k(f(x))+k(f(y)\lambda)\\
+                    &=(kf)(x)+(kf(y))\lambda=(kf)(x)+(kf)(y)\lambda
+                \end{align*}
+                Проверим аксиомы модуля
+                \begin{enumerate}
+                    \item $((kl)f)(x)=(kl)f(x)=k(lf(x))=k((lf)(x))=(k(lf))(x)$
+                    \item $(1f)(x)=1(f(x))=f(x)$
+                    \item $(k(f+g))(x)=k(f+g)(x)=k(f(x)+g(x))=kf(x)+kg(x)=(kf)(x)+(kg)(x)=(kf+kg)(x)$
+                    \item $((k+l)f)(x)=(k+l)f(x)=kf(x)+lf(x)=(kf)(x)+(lf)(x)=(kf+lf)(x)$
+                \end{enumerate}
+                Значит мы ввели структуру левого $S$-модуля.
+                
+                Теперь если $M_1, M_2$ – $S$-модули-$A$ и $N$ – модуль-$A$.
+                Тогда на $\text{Hom}_A(M_1\oplus M_2,N)$ и на $\text{Hom}_A(M_1,N)\oplus\text{Hom}_A(M_2,N)$
+                есть структуры правых модулей-$S$. Построим гомоморфизм
+                \begin{align*}
+                    \varphi:\;&\text{Hom}_A(M_1,N)\oplus\text{Hom}_A(M_2,N)\longrightarrow\text{Hom}_A(M_1\oplus M_2,N)\\
+                    &(f,g)\;\mapsto\;f+g
+                \end{align*}
+
+                Гдe $(f+g)(x,y)=f(x)+g(y)$ для $x\in M_1$ и $y\in M_2$. Покажем теперь, что $\varphi$
+                корректно определен, а именно, что $f+g$ линейны
+                \begin{align*}
+                    &(f+g)((x,y)+(x',y')\lambda)=(f+g)(x+x'\lambda,y+y'\lambda)=f(x+x'\lambda)+g(y+y'\lambda)=\\
+                    &f(x)+f(x')\lambda+g(y)+g(y')\lambda=(f(x)+g(y))+(f(x')+g(y'))\lambda =\\&(f+g)(x,y)+(f+g)(x',y')\lambda
+                \end{align*}
+
+                Пусть теперь $h\in\text{Hom}_A(M_1\oplus M_2,N)$, тогда можно найти его прообраз при $\varphi$,
+                а именно положим $f=h\circ i_1$ и $g=h\circ i_2$, где $i_1: x\mapsto (x,0)$ и $i_2: y\mapsto (0,y)$
+                – морфизмы, а значит $f$ и $g$ тоже морфизмы, как композиция морфизмов. Но также $h(x,y)=h((x,0)+(0,y))=
+                h(x,0)+h(0,y)=f(x)+g(y)=(f+g)(x,y)$. Так что отображение $\varphi$ сюръекьтвно. С другой
+                стороны мы имеем, что если $f(x)+g(y)=f'(x)+g'(y)$, то
+                \begin{align*}
+                    f(x)=f(x)+g(0)=f'(x)+g'(0)=f'(x)\\
+                    g(y)=f(0)+g(y)=f'(0)+g'(y)=g'(y)
+                \end{align*}
+                А значит прообразы совпадают и отображение инъективно.
+
+                Проверим ленейность $\varphi$
+                \begin{align*}
+                    &\varphi((f,g)+(f',g')k)(x,y)=\varphi(f+f'k,g+g'k)(x,y)=(f+f'k)(x)+(g+g'k)(y)=\\
+                    &f(x)+g(y)+f'k(x)+g'k(y)=\varphi(f,g)(x,y)+f'(kx)+g'(ky)=\varphi(f,g)(x,y)+\varphi(f',g')(kx,ky)=\\
+                    &\varphi(f,g)+\varphi(f',g')(k(x,y))=\varphi(f,g)+(\varphi(f',g')k)(x,y)=(\varphi(f,g)+\varphi(f',g')k)(x,y)
+                \end{align*}
+
+                Тогда изоморфизм построен.
+
+                Во втором случае $M_1,M_2$ – модули-$A$ и $N$ $S$-модуль-$A$, тогда на $\text{Hom}_A(M_1\oplus M_2,N)$ и на $\text{Hom}_A(M_1,N)\oplus\text{Hom}_A(M_2,N)$
+                есть структуры левых модулей-$S$. Построим гомоморфизм
+                \begin{align*}
+                          \varphi:\;&\text{Hom}_A(M_1,N)\oplus\text{Hom}_A(M_2,N)\longrightarrow\text{Hom}_A(M_1\oplus M_2,N)\\
+                          &(f,g)\;\mapsto\;f+g
+                \end{align*}
+                Он инъективен, сюръективен и бьёт в морфизмы ровно по тем же соображениям.
+                Осталось проверить, что он гомоморфизм
+                \begin{align*}
+                    &\varphi((f,g)+k(f',g'))(x,y)=\varphi(f+kf',g+kg')(x,y)=(f+kf')(x)+(g+kg')(y)=\\
+                    &f(x)+kf'(x)+g(y)+kg'(y)=(f+g)(x,y)+k(f'+g')(x,y)=(\varphi(f,g)+k\varphi(f',g'))(x,y)
+                \end{align*}
+
+            \item $\text{Hom}_A(M, N_1\oplus N_2)\cong\text{Hom}_A(M,N_1)\oplus\text{Hom}_A(M,N_2)$
+                Пусть $M$ – $S$-модуль-$A$ и $N_1,N_2$ – модули-$A$. Тогда $\text{Hom}_A(M, N_1\oplus N_2)$ и
+                $\text{Hom}_A(M,N_1)\oplus\text{Hom}_A(M,N_2)$ несут структуры правых модулей-$S$. Зададим отображение
+                \begin{align*}
+                    \varphi:\;&\text{Hom}_A(M,N_1)\oplus\text{Hom}_A(M,N_2)\longrightarrow\text{Hom}_A(M,N_1\oplus N_2)\\
+                    &(f,g)\;\mapsto\;f\oplus g
+                \end{align*}
+                Где $(f\oplus g)(x)=(f(x),g(x))$. Проверим корректность
+                \begin{align*}
+                    &(f\oplus g)(x+yk)=(f(x+yk),g(x+yk))=\\
+                    &(f(x)+f(y)k,g(x)+g(y)k)=(f(x),g(x))+(f(y),g(y))k=(f\oplus g)(x)+(f\oplus g)(y)k
+                \end{align*}
+                Пусть $h\in\text{Hom}_A(M,N_1\oplus N_2)$, тогда положим $f=\pi_1\circ h$ и $g=\pi_2\circ h$,
+                где $\pi_1:(x,y)\mapsto x$ и $\pi_2:(x,y)\mapsto y$. $f$, $g$ будут гомоморфизмами, так как
+                они композиции гомоморфизмов. Тогда $(f\oplus g)(x)=(f(x),g(x))=h(x)$, мы нашли прообраз, а
+                значит отображение $\varphi$ сюрeктивно. Если $f\oplus g=f'\oplus g'$, то для всех $x$
+                \[(f(x),g(x))=(f'(x),g'(x))\Leftrightarrow f(x)=f'(x)\,\&\,g(x)=g'(x)\]
+                А значит отображение инъективно, проверим линейность $\varphi$
+                \begin{align*}
+                    &\varphi((f,g)+(f',g')k)(x)=\varphi(f+f'k,g+g'k)(x)=((f+f'k)(x),(g+g'k)(x))=\\
+                    &(f(x)+f'(kx),g(x)+g'(kx)=(f(x),g(x))+(f'(kx),g'(kx))=\varphi(f,g)(x)+\varphi(f',g')(kx)=\\
+                    &\varphi(f,g)(x)+\varphi(f',g')k(x)
+                \end{align*}
+                Тогда изоморфизм построен.
+
+                Пусть теперь $M$ – модуль-$A$ и $N_1,N_2$ – $S$-модули-$A$, тогда на хомах будут структуры левых
+                $S$-модулей. Опять рассмотрим отображение $\varphi$, оно корректно и биективно, проверим его линейность
+                \begin{align*}
+                    &\varphi((f,g)+k(f',g'))(x)=\varphi(f+kf',g+kg')(x)=((f+kf')(x),(g+kg')(x))=\\
+                    &(f(x)+kf'(x),g(x)+kg'(x)=(f(x),g(x))+(kf'(x),kg'(x))=\varphi(f,g)(x)+k(f'(x),g'(x))(x)=\\
+                    &\varphi(f,g)(x)+k\varphi(f',g')(x)
+                \end{align*}
+                Модули над коммутативными кольцами легко превращаются в бимодули, и для них умножение
+                справа и слева совпадают, поэтому часто две рассмотренные конструкции модулей на хомах не различают.
+        \end{enumerate}
+        
+    \item \textbf{Какие из следующих модулей являются свободными? Конечно порожденными?}
+        \begin{enumerate}
+            \item $A = \mathbb{Z}, M = \mathbb{Z}$
+
+                Очевидно, что $M\cong Z^{\oplus 1}$, так что $M$ свободен. Он порождается 1, а значит конечно порожден.
+
+            \item $A=\mathbb{Q},M=\mathbb{R}$
+
+                Так как $\mathbb{R}$ векторное пространство над $\mathbb{Q}$, то как мы видели на лекции в $\mathbb{R}$
+                есть базис, а значит $\mathbb{R}$ свободен (на самом деле любое векторное пространство – свободный модуль).
+                $\mathbb{R}$ не может быть прямой суммой конечного числа $\mathbb{Q}$, так как $\mathbb{R}$ несчетен, а
+                $\mathbb{Q}$ счетен.
+
+            \item $A = \mathbb{R}, M = \mathbb{C}$
+
+                $\mathbb{C}$ – $\mathbb{R}$-векторное пространство и порождается $\{1,i\}$, а значит оно конечно порожденный
+                свободный модуль.
+
+            \item $A=\mymat_{n\times n}(\mathbb{k}), M=\mymat_{n\times m}(\mathbb{k})$
+                Заметим, что $M$ конечно порожден матричными единицами $e_{i,j}$, так как $A\in M$
+                всегда раскладывается в сумму матричных единиц, умноженных на $a_{i,j}I_n$. Предположим,
+                что $M$ свободен, тогда есть изоморфизм $\varphi$ между $M\cong A^{\oplus I}$. Заметим,
+                что в $A$ вкладывается поле, а именно $k\in\mathbb{K}\mapsto kI_n$ причем тогда $\varphi$
+                можно рассматривать как изоморфизм $\mathbb{K}$-векторных пространств. Нетрудно заметить, 
+                что размерность $A^{\oplus}$ равна $(n^2\#I)$, а размерность $M$ равна $nm$, тогда у нас
+                должно быть равенство размерностей, а значит $m=n\#I$. Тогда $\#I$ конечно и мы получим
+                равенство в целых числах $m=nk$ это необходимое условие. Теперь пусть это верно и мы построим
+                изоморфизм. $\varphi:(M_i)\in\mymat_{n\times n}(\mathbb{k})^{\oplus k}\mapsto \bigvee_i M_i$,
+                где под $\vee$ мы подразумеваем конкатенацию матриц в линию. Например:
+                \[
+                    \left(\begin{array}{cc}
+                        a & b\\
+                        c & d\\
+                    \end{array}\right)\vee
+                    \left(\begin{array}{cc}
+                        x & y\\
+                        z & w\\
+                    \end{array}\right)=
+                    \left(\begin{array}{cccc}
+                        a & b & x & y\\
+                        c & d & z & w\\
+                    \end{array}\right)
+                \]
+                Это отображение очевидно пропускает сложение, так как в двух случаях оно происходит по индексно.
+                Оно биективно, а также пропускает умножение на матрицы, так матрица действуют по отдельности на
+                каждый столбец, значение индекса после операции зависит только от значений в столбцах, а они
+                при $\varphi$ не изменяются. Так что $\mymat_{n\times m}(\mathbb{k})$ свободен над
+                $\mymat_{n\times n}(\mathbb{k})$ $\Leftrightarrow$ $n$ делит $m$.
+        \end{enumerate}
+
+    \item \textbf{Сформулируйте и докажите теорему о гомоморфизме для модулей.}
+
+        Пусть $f:U\longrightarrow V$ – морфизм модулей-$A$, тогда верно, что
+        $V/\text{Ker}(f)\cong\text{Im}(f)$. Для этого построим отображение
+        $\phi: [x]\mapsto f(x)$, как мы видели, это изоморфизм групп, проверим, 
+        что он пропускает умножение на скаляры $\phi([x]k)=\phi([xk])=f(xk)=f(x)k
+        =\phi([x])k$, а значит это изоморфизм модулей.
+
+    \item \textbf{Пусть $A$ – коммутативное кольцо. Назовем $A$-модуль \textnormal{\textit{нётеровым}}
+        (соотв., \textnormal{\textit{артиновым}}), если любая возрастающая (соотв., убывающая) цепочка
+        подмодулей в нем стабилизируется. Пусть дана точная последовательность $A$-модулей}
+                \begin{center}
+                    \begin{tikzcd}
+                        0\arrow{r} & M_1\arrow{r}{\phi} & M_2\arrow{r}{\psi} & M_3\arrow{r} & 0
+                    \end{tikzcd}
+                \end{center}
+        \textbf{Докажите, что $M_2$ нетерово (соотв., артиново) тогда и только тогда, когда
+        $M_1$ и $M_3$ нетерово (соотв., артиновы).}
+
+        Пусть $M_2$ нётеров или артинов. Тогда возьмём цепочку из $M_1$, она
+        стабилизируется, так как она вкладывается в $M_2$ и является цепочкой
+        в нётеровом или артиновом модуле. Возьмём цепочку из $M_3$, ей
+        соответствует однозначно некая цепочка в $M_2$ подмодулей, содержащих
+        ядро, она стабилизируется, а значит стабилизируется и изначальная из $M_3$.
+
+        Пусть теперь $M_1$ и $M_3$ нётеровы артиновы. Пусть $(A_i)$ цепочка из
+        $M_2$, тогда $A_i\cong(\text{Ker}(\psi)\cap A_i)\oplus\psi[A_i]$ по
+        теореме о гомеоморфизме для $\psi|_{A_i}$. К тому же через $\phi$, так
+        как последовательность точна, модулю $\text{Ker}(\psi)\cap A_i$
+        однозначно соответствует прообраз $B_i$. Причем свойство цепочки без
+        проблем переносится на прямые слагаемые, а значит $(B_i)$ и $(\psi[A_i])$
+        цепочки в $M_1$ и $M_3$ и они обе стабильны после некоторого шага, а значит и их прямая
+        сумма тоже, а тогда и изначальная цепочка.
+
+    \item \textbf{Пусть $A$ – артиново коммутативное кольцо. Пусть $M$ – конечно
+        порожденный модуль-$A$. Докажите, что $M$ артинов.}
+
+        Пусть $\{x_1,\ldots,x_n\}$ порождает $M$. Рассмотрим свободный модуль
+        над $\{x_1,\ldots,x_n\}$ $M'=A^{\{x_1,\ldots,x_n\}}$. Покажем, что
+        свободные модули артиновы. Очевидно $А$ – артиновый модуль.
+        Покажем, что если $A^{\oplus n}$ артинов, то и $A^{\oplus n+1}$ тоже
+        для этого построим точную последовательность
+        \[0\rightarrow A\rightarrow A^{\oplus n+1}\rightarrow A^{\oplus n}\rightarrow 0\]
+        где вторая стрелка отправляет скаляр в последнюю координату, а вторая отправляет
+        тождественно всё кроме последней координаты. $A$ и $A^{\oplus n}$ артиновы, тогда
+        $A^{\oplus n+1}$ тоже. По индукции заключаем, что модули с конечным базисом над
+        артиновом кольцом артиновы. Теперь вернёмся к $M'$ и $M$, как мы видели $M'$
+        артинов, а из $M'$ в $M$ есть каноническая проекция, а в задаче 4 мы видели,
+        что при проекции артиновость переносится вдоль стрелки. Тогда $M$ тоже
+        артинов.
+
+    \item \textbf{Пусть $A$ – кольцо. Пусть дана последовательность правых модулей-$A$}
+        \begin{center}\begin{tikzcd}
+            M_1\arrow{r}{\phi} & M_2\arrow{r}{\psi} & M_3 \arrow{r} & 0
+        \end{tikzcd}\end{center}
+        \textbf{Докажите, что индуцированная последовательность}
+        \begin{center}\begin{tikzcd}
+            0\arrow{r}{} & \text{Hom}(M_3,N)\arrow{r}{\widetilde\psi} & \text{Hom}(M_2,N)\arrow{r}{\widetilde\phi} & \text{Hom}(M_1,N)
+        \end{tikzcd}\end{center}
+        \textbf{точна для любого $S$-модуля-$A$ $N$ тогда и только тогда, когда точна первая.
+        Докажите аналогичное утверждение, заменив $\text{Hom}(−,N)$ на $\text{Hom}(N,−)$.}
+
+        Определим $(h)\widetilde\phi=h\circ\phi$, аналогично определим $\widetilde\psi$. На Hom
+        положим структуры левых $S$-модулей. Покажем, что $\widetilde\phi$ – гомоморфизм
+        \[(kg+h)\widetilde\phi(x)=kg(\phi(x))+h(\phi(x))=((kg)\widetilde\phi+h\widetilde\phi(x).\]
+        Для точности последовательности необходимо, чтобы $\widetilde\psi$ было инъективным.
+        Из первой последовательности следует, что $\psi$ сюръективен, а значит он
+        эпиморфизм и его можно сокращать справа, тогда $h\circ\psi=(h)\widetilde\psi=
+        (h')\widetilde\psi=h'\circ\psi$ мы сокращаем $\psi$ и получаем $h=h'$, а тогда
+        $\widetilde\psi$ и вправду инъективен. На $\widetilde\varphi$ наложено условие, что
+        его ядро – в точности образ $\widetilde\psi$, но мы знаем, что $\text{Im}(\phi)=\text{Ker}(\psi)$.
+        Пусть $\text{Im}(\widetilde\psi)\ni h=h'\circ\psi$, тогда $(h)\widetilde\phi(x)=h'\circ\psi\circ\phi(x)=0$,
+        а значит $\text{Im}(\widetilde\psi)\subseteq\text{Ker}(\widetilde\phi)$. Теперь пусть
+        $h\in\text{Ker}(\widetilde\phi)$, мы хотим найти $h'$, что бы следующая диаграмма коммутировала, потому
+        как тогда $h=(h')\widetilde\psi$:
+        \begin{center}\begin{tikzcd}
+            M_1\ar{r}{\phi} & M_2\ar{r}{\psi}\ar{rd}{h} & M_3 \ar{r}\ar[dashed]{d}{h'} & 0\\
+            & & N &
+        \end{tikzcd}\end{center}
+        Так как $h\in\text{Ker}(\widetilde\phi)$, то $\text{Im}(\phi)\subseteq\text{Ker}(h)$. Тогда диаграмму
+        можно профакторизовать и получить фактор отображения $\overline h$ и $\overline\psi$, что $\overline h([a]) = h(a)$
+        и точно также для $\psi$, так как $\text{Im}(\phi)=\text{Ker}(\psi)$. И более того $\overline\psi$ будет
+        биекцией. Тогда будет иметь место следующая диаграмма:
+        \begin{center}\begin{tikzcd}
+            M_2/\text{Im}(\phi) \arrow{r}{\overline\psi}\arrow{rd}{\overline h} & M_3 \arrow[dashed]{d}{h'}\\
+            & N
+        \end{tikzcd}\end{center}
+        И можно положить $h'=\overline h\circ\overline\psi^{-1}$.
+
+        Тогда мы показали, что $\widetilde\psi$ – инъекция и $\text{Im}(\widetilde\psi)=\text{Ker}
+        (\widetilde\phi)$, а значит вторая последовательность тоже точна.
+
+        Рассмотрим аналогичное утверждение для левых $\text{Hom}(N,–)$. Оно в отличии от прошлого ковариантно, 
+        так что нужно будет кое-что поменять. Пусть мы наблюдаем следующую точную последовательность
+        \begin{center}\begin{tikzcd}
+            0\ar{r} & M_1\ar{r}{\phi} & M_2\ar{r}{\psi} & M_3
+        \end{tikzcd}\end{center}
+        Тогда индуцированная последовательность тоже точна:
+        \begin{center}\begin{tikzcd}
+            0\arrow{r} & \text{Hom}(N,M_1)\arrow{r}{\widetilde\phi} &\text{Hom}(N,M_2)\arrow{r}{\widetilde\psi} &\text{Hom}(N,M_3)
+        \end{tikzcd}\end{center}
+        гдe $\widetilde\phi(h)=\phi\circ h$, аналогично определяется $\widetilde\psi$. Проверим инъективность
+        $\widetilde\phi$, пусть $\psi\circ h=\widetilde\psi(h)=\widetilde\psi(h')=\psi\circ h'$, но так как
+        из точности первой последовательности видно, что $\psi$ – инъкция, а значит мономорфизм, то
+        его можно сокращать слева, а тогда $h=h'$ и $\widetilde\psi$ инъективно.
+
+        Теперь проверим второе условие на точность, а именно, что $\text{Im}(\widetilde\phi)=\text{Ker}(\widetilde\psi)$.
+        Мы знаем, что $\text{Im}(\phi)=\text{Ker}(\psi)$. Пусть $\text{Im}(\phi)\ni h=\phi\circ h'$,
+        тогда $\widetilde\psi(h)(x)=\psi\circ\phi(h(x))=0$, а значит $\text{Im}(\widetilde\phi)\subseteq
+        \text{Ker}(\widetilde\psi)$. Проверим в другую сторону, пусть $h\in\text{Ker}(\widetilde\psi)$,
+        тогда будет искать $h':N\rightarrow M_1$, чтобы следующая диаграмма коммутировала
+        \begin{center}\begin{tikzcd}
+            N\ar{r}{h}\ar[dashed]{dr}{h'} & M_2\ar{r}{\psi} & M_1\\
+            & M_1\ar{u}{\phi} &
+        \end{tikzcd}\end{center}
+        Так как $\psi\circ h = 0$, то $\text{Im}(h)\subseteq\text{Ker}(\psi)$,
+        а тогда можно сузить кообласить до $\text{Ker}(\psi)=\text{Im}(\psi)$,
+        обозначим за $\overline h,\overline \phi$ отображения со суженой областью,
+        то есть такие отображение, что их графики совпадают с изначальными графиками,
+        но кообласть меньше, тогда так как $\phi$ инъективно, то после сужения он
+        привратится в изоморфизм и будет иметь место следующая диаграмма:
+        \begin{center}\begin{tikzcd}
+            N\ar{r}{\overline h}\ar[dashed]{rd} & \text{Im}(\phi)\\
+            & M_1\ar{u}{\overline\phi}
+        \end{tikzcd}\end{center}
+
+        Тогда можно положить $h'=\overline\phi^{-1}\circ\overline h$. А значит
+        вторая цепочка тоже точна.
+
+        Заметим, что нам на самом деле не обязательно иметь структуру $S$-модуля,
+        по тому как она всегда автоматически появляется, когда один из модулей –
+        бимодуль, а гомоморфизмы абелевых групп переходят в гомоморфизмы $S$-модулей,
+        так что можно рассматривать всё тоже самое просто на абелевых группах.
+
+    \item \textbf{Чему изоморфен $\mathbb{Z}$-модуль $\textnormal{Hom}(\mathbb{Q}, \mathbb{Z}/n\mathbb{Z}$)?}
+
+        Пусть $f\in \text{Hom}(\mathbb{Q}, \mathbb{Z}/n\mathbb{Z}$ и $q\in\mathbb{Q}$, если $n\neq 0$, то
+        имеет место следующее равенство $f(q)=nf(q/n)=0$, а значит $\text{Hom}(\mathbb{Q}, \mathbb{Z}/n\mathbb{Z}$ и $q\in\mathbb{Q} = 0$.
+        Если мы имеем $n=0$, то для любого $k\in Z_{>0}$ мы имеем $f(q) = kf(q/k)$, а значит для $k>f(q)$ будет
+        $f(q/k)=0$, а значит $f(q)=0$ и $\text{Hom}(\mathbb{Q}, \mathbb{Z})=0$ тоже.
+
+    \item \textbf{Пусть $A$ – кольцо. Пусть дана точная последовательность правых модулей-$A$}
+        \[0\rightarrow M_1\rightarrow M_2\rightarrow M_3\rightarrow 0\]
+        \textbf{Верно ли, что следующая последовательность}
+        \[0\rightarrow\text{Hom}(M_3,N)\rightarrow\text{Hom}(M_2,N)\rightarrow\text{Hom}(M_1,N)\rightarrow 0\]
+        \textbf{для бимодуля $N$ точна? А если заменить $\text{Hom}(−,N)$ на $\text{Hom}(N,−)$?}
+
+        Ответ на два вопроса отрицателен. В первом случае не верна часть цепи, где
+        \begin{center}\begin{tikzcd}
+            0\ar{r}& M_1\ar{r}{\phi}& M_2
+        \end{tikzcd}\end{center}
+        не влечет точность
+        \begin{center}\begin{tikzcd}
+            \text{Hom}(M_2,N)\ar{r}{\widetilde\phi}& \text{Hom}(M_1,N)\ar{r}& 0
+        \end{tikzcd}\end{center}
+
+        Приведем контр пример, пусть $M_1=M_2=N=\mathbb{Z}$ и $\phi:x\mapsto2x$ – инъекция. Тогда очевидно, 
+        $\widetilde\phi$ не будет сюръекцией, так как для любого $f\in\text{Hom}(\mathbb{Z},\mathbb{Z})$
+        $(f)\widetilde\phi\neq\text{id}$. Так как $f(\phi(x))=f(x2)=f(x)2$ – четно, а нечетные числа получить
+        мы не сможем.
+
+        Приведем контр пример для двойственной ситуации, то есть покажем, что если точна
+        \begin{center}\begin{tikzcd}
+            M_1\ar{r}{\phi}& M_2\ar{r} &0
+        \end{tikzcd}\end{center}
+        То точность индуцированной последовательности не гарантирована
+        \begin{center}\begin{tikzcd}
+            \text{Hom}(N,M_1)\ar{r}{\widetilde\phi}& \text{Hom}(N,M_2)\ar{r}& 0
+        \end{tikzcd}\end{center}
+
+        Так как имеет место следующая диаграмма
+        \begin{center}\begin{tikzcd}
+            \mathbb{Z}\ar{r}{\text{mod}4} & \mathbb{Z}_4\ar{r} &0\\
+            & \mathbb{Z}_2\ar{ul}\ar{u}\ar{ur}
+        \end{tikzcd}\end{center}
+        Где $\text{Hom}(\mathbb{Z}_2,\mathbb{Z})=0$, а $\text{Hom}(\mathbb{Z}_2,\mathbb{Z}_4)=\mathbb{Z}_2$
+        и соответственно
+        \[0\rightarrow\mathbb{Z}_2\rightarrow 0\]
+        не может быть точна.
+
+    \item \textbf{Пусть $A$ – кольцо. Рассмотрим коммутативную диаграмму модулей-$A$ с точными строками:}
+        \begin{center}\begin{tikzcd}
+            0\ar{r}& M_1\ar{r}{\phi_1}\ar{d}{f_1}& M_2\ar{r}{\phi_2}\ar{d}{f_2}& M_3\ar{r}\ar{d}{f_3} & 0\\
+            0\ar{r}& N_1\ar{r}{\psi_1}& N_2\ar{r}{\psi_2}& N_3\ar{r}& 0
+        \end{tikzcd}\end{center}
+        \textbf{Докажите, что имеется индуцированная точная последовательность модулей-$A$}
+        \[0\rightarrow\text{Ker}(f_1)\rightarrow\text{Ker}(f_2)\rightarrow\text{Ker}(f_3)\rightarrow
+        \text{Coker}(f_1)\rightarrow\text{Coker}(f_2)\rightarrow\text{Coker}(f_3)\rightarrow 0\]
+
+        Начнём с первой стрелки $\widetilde\phi_1:\text{Ker}(f_1)\rightarrow\text{Ker}(f_2)$
+        она получается ограничением области и кообласти из $\phi_1$ и если корректно определена, 
+        то очевидно сохраняет инъективность, так что проверим корректность, то есть убедимся в
+        том, что $\phi_1[\text{Ker}(f_1)]\subseteq\text{Ker}(f_2)$. Пусть $x\in\text{Ker}(f_1)$,
+        тогда из коммутативности диаграммы мы получим $f_2(\phi_1(x))=0$, а значит $\phi_1(x)\in\text{Ker}(f_2)$
+        и мы доказали то, то что хотели.
+
+        Вторая стрелка определяется аналогично и также корректна $\widetilde\phi_2:\text{Ker}(f_2)\rightarrow
+        \text{Ker}(f_3)$. Проверим, что она точна слева в этой диаграмме, то есть, что $\text{Im}(\widetilde
+        \phi_1)=\text{Ker}(\widetilde\phi_2)$. Так как в изначальной диаграмме $\phi_2\circ\phi_1=0$,
+        то и в индуцированной $\widetilde\phi_2\circ\widetilde\phi_1=0$ тоже, так как ограничение не изменяет
+        свойства занулять, а занчит $\text{Im}(\widetilde\phi_1)\subseteq\text{Ker}(\widetilde\phi_2)$.
+        Пусть $x\in\text{Ker}(\widetilde\phi_2)$, тогда $x\in\text{Im}(\phi_1)=\text{Ker}(\phi_2)$, а значит
+        есть $y\in M_1$, что $\phi_1(y)=x$, убедимся, что $y\in\text{Ker}(f_1)$. Это верно, так как
+        $\psi_1\circ f_1(y)=f_2\circ\phi_1(y)=0$ и так как $\psi$ инъекция, то $y\in\text{Ker}(f_1)$, а
+        тогда $x\in\text{Im}(\widetilde\phi_1)$ и мы получили второе включение.
+
+        Посмотрим на третью стрелку, для $x\in\text{Ker}(f_3)$ $\phi_2^{-1}(x)=x'+\text{Ker}(\phi_2)=x'+
+        \text{Im}(\phi_1)$ так как $\phi_2$ cюръективен, дальше пройдемся вдоль $f_2$ и $f_2[x'+\text{Im}(\phi_1)]=f_2(x')+\text{Im}(f_2\circ\phi_1)
+        =f_2(x')+\text{Im}(\psi_1\circ f_1)$, причем так как $\phi_2\circ f_3(x')=0$, то $f_2(x')\in\text{Ker}(\psi_2)=
+        \text{Im}(\psi_1)$, а значит $\psi_1^{-1}[f_2(x')+\text{Im}(\psi_1\circ f_1)]=x''+\text{Im}{f_1}$, поэтому у нас
+        есть естественное отображение $\delta: \text{Ker}(f_3)\rightarrow\text{Coker}(f_1):x\mapsto x''+\text{Im}(f_1)$ и оно корректно,
+        так как мы работали со множествами, а не представителями. Проверим, что это гомоморфизм модулей:
+        \begin{align*}
+            &\phi_2^{-1}(x+y\lambda)=x'+y'\lambda+\text{Ker}(\phi_2)\\
+            &f_2[x'+y'\lambda+\text{Ker}(\phi_2)]=f_2(x')+f_2(y')\lambda+\text{Im}(\phi_1\circ f_2)\\
+            &\psi_1^{-1}[f_2(x')+f_2(y')\lambda+\text{Im}(f_1\circ\phi_2)]=x''+y''\lambda+\text{Im}(f_1)
+        \end{align*}
+        Убедимся в точности слева, то есть что $\text{Im}(\widetilde\phi_2)=\text{Ker}(\delta)$. Пусть $x\in\text{Ker}(f_2)$,
+        тогда $\widetilde\phi_2(x)\in\text{Im}(\widetilde\phi_2)$, посчитаем образ после $\delta$, тогда
+        \[\psi_1^{-1}[f_2[\phi_2^{-1}(\widetilde\phi_2(x))]]=\psi_1^{-1}[f_2[x+\text{Ker}(\phi_2)]]=\psi_1^{-1}[0+\text{Im}(\psi_1\circ f_1)]=0+\text{Im}(f_1)\]
+        А значит $\text{Im}(\widetilde\phi_2)\subseteq\text{Ker}(\delta)$. Теперь попробуем включение в другую сторону, пусть
+        $x\in\text{Ker}(\delta)\subseteq\text{Ker}(f_3)$. Тогда $\psi_1^{-1}[f_2(x')+\text{Im}(\psi_1\circ f_1)]=\text{Im}(f_1)$,
+        а тогда по инъективности $\psi_1$ верно, что $f_2(x')\in\text{Im}(\psi_1\circ f_1)=\text{Im}(f_2\circ \phi_1)$. Тогда
+        $x'\in\text{Im}(\phi_1)+\text{Ker}(f_2)=\text{Ker}(\phi_2)+\text{Ker}(f_2)$, но так как мы можем выбрать разные $x'$ c
+        точностью по модулю $\text{Ker}(\phi_2)$, то можно положить $x'\in\text{Ker}(f_2)$, а тогда $x=\widetilde\phi_2(x')\in
+        \text{Im}(\widetilde\phi_2)$ и мы доказали второе включение.
+
+        Посмотрим на следующую стрелку индуцированную с $\psi_1$, назовём её $\widetilde\psi_1:a+\text{Im}(f_1)\mapsto
+        \psi_1(a)+\text{Im}(f_2)$. Проверим, что она корректно определена, для этого достаточно проверить,
+        что $\psi_1[\text{Im}(f_1)]\subseteq\text{Im}(f_2)$, ну а это так, потому что $\psi_1[\text{Im}(f_1)]
+        =\text{Im}(f_2\circ\phi_1)$. Теперь будем проверять точность, а именно, что $\text{Im}(\delta)=\text{Ker}(\widetilde\psi_1)$.
+        Пусть $x\in\text{Ker}(f_3)$, $\phi_2^{-1}(x)=x'+\text{Ker}(\phi_2)$. Тогда
+        \[f_2[x'+\text{Ker}(\phi_2)]=f_2(x')+f_2[\text{Ker}(\phi_2)]=f_2(x')+f_2[\text{Im}(\phi_1)]\subseteq \text{Im}(f_2)\]
+        По определению $\delta(x)=\psi_1^{-1}[f_2[x'+\text{Ker}(\phi_2)]]$. Заметим, что также $\widetilde\psi_1(a)=
+        \psi_1[a]+\text{Im}(f_2)$, но так как $\psi_1$ инъективна, то $\psi_1[\psi_1^{-1}[A]]\subseteq A$, а тогда в частности
+        $\psi_1[\psi_1^{-1}[f_2[x'+\text{Ker}(\phi_2)]]\subseteq f_2[x'+\text{Ker}(\phi_2)]\subseteq\text{Im}(f_2)\subseteq\text{Im}(f_2)$,
+        а тогда $\widetilde\psi_1(\delta(x))=\text{Im}(f_2)$. А значит мы доказали, что $\text{Im}(\delta)\subseteq\text{Ker}(\widetilde
+        \psi_1)$. Проверим утверждение в обратную сторону, пусть $x\in N_1$ такой, что $\widetilde\psi_1(x)=\text{Im}(f_2)$. Это
+        означает, что $\psi_1(x)\in\text{Im}(f_2)$, тогда мы найдем $x'\in M_2$, что $f_2(x')=\psi_1(x)$. Тогда по построению $\delta$
+        мы имеем $\delta(\phi_2(x'))=x+\text{Im}(f_1)$, и мы получили включение в другую сторону, а значит верно и равенство
+        $\text{Im}(\delta)=\text{Ker}(\widetilde\psi_1)$.
+
+        Строим дальше, стрелка $\widetilde\psi_2$ определяется аналогично, и поэтому тоже корректна, проверим, что она точна.
+        Пусть $x\in N_1$, тогда
+        \[\widetilde\psi_2(\widetilde\psi_1(x+\text{Im}(f_1)))=\widetilde\psi_2(\psi_1(x)+\text{Im}(f_2))=\psi_2\circ\psi_1(x)
+            +\text{Im}(f_3)=\text{Im}(f_3)\]
+        А значит $\text{Im}(\widetilde\psi_1)\subseteq\text{Ker}(\widetilde\psi_2)$. Теперь пусть $y\in N_2$ такой, что
+        $\widetilde\phi_2(y+\text{Im}(f_2))=\text{Im}(f_3)$ это означает, что $\psi_2(y)\in\text{Im}(f_3)$. Пусть $y'\in M_3$ таков, что
+        $f_3(y')=\psi_2(y)$. Дальше по сюръективности $\phi_2$ мы найдем $y''\in M_2$, что $\phi_2(y'')=y'$. Посмотрим на
+        $y-f_2(y'')$, увидим, что из-за коммутативности диаграммы $\psi_2(y-f_2(y''))=0$, а тогда по точности нижней линии будет
+        $y-f_2(y'')=c\in\text{Im}(\psi_1)$, а тогда $y+\text{Im}(f_2)=c+\text{Im}(f_2)\subseteq\text{Im}(\psi_1)$, а значит мы
+        доказали включение в обратную сторону, а значит эта часть последовательности точна, но также очевидно, что
+        $\widetilde\psi_2$ инъективна, так как она индуцирована с инъективного отображения. Последовательность построена, а
+        её точность доказана.
+
+    \item \textbf{Пусть $A$ – коммутативное кольцо.}
+        \begin{enumerate}
+            \item \textbf{Пусть $M$ – нётеров $A$-модуль. Докажите, что если гомоморфизм $\phi:M\rightarrow M$ сюръективен,
+                то $\phi$ – изоморфизм.}
+
+                Заметим, что мы найдем возрастающую последовательность
+                \[M\subseteq\text{Ker}(\phi)\subseteq\text{Ker}(\phi^2)\subseteq\ldots.\]
+                По нётеровости она стабилизируется на некотором шаге $n$, то есть мы получим $\text{Ker}(\phi^n)=\text{Ker}
+                (\phi^{n+1})$. Из этого вытекает, что $\text{Im}(\phi^n)\cap\text{Ker}(\phi)=\{0\}$, но так как по сюръективности
+                $\text{Im}(\phi^n)=M$, то ядро $\phi$ нулевой, а значит что $\phi$ так же инъективен, а тогда и биективен.
+
+            \item \textbf{Пусть $M$ – артинов $A$-модуль. Докажите, что если гомоморфизм $\phi: M\rightarrow M$ инъективен,
+                то $\phi$ – изоморфизм.}
+
+                Найдём убывающую цепочку
+                \[M\supseteq\text{Im}(\phi)\supseteq\text{Im}(\phi^2)\supseteq\ldots.\]
+                В этой цепочке вложенность обеспечена действием $\phi$. Заметим, что
+                по артиновости она стабилизируется после некоторого шаг и пусть $n$ такого, что $\text{Im}(\phi^n)=\text{Im}(\phi^{n+1})$.
+                Ещё точнее можно сказать, что $\phi$ индуцирует взаимно однозначное отображение между $\text{Im}(\phi^n)$ и
+                $\text{Im}(\phi^{n+1})$. Тогда посмотрим на индуцированное $\phi': \text{Im}(\phi^{n-1})\rightarrow\text{Im}(\phi^n)$.
+                Для него верно, что подмножество $\text{Im}(\phi^n)$ всё переходит в $\text{Im}(\phi^n)$ под $\phi$, а тогда по
+                инъективности $\phi$ мы заключаем, что $\text{Im}(\phi^{n-1})\setminus\text{Im}(\phi^n)=\varnothing$, а тогда
+                $\text{Im}(\phi^{n-1})=\text{Im}(\phi^n)$ и если спуститься в начало, мы получим $M=\text{Im}(\phi)$, а значит $\phi$ –
+                биекция.
+        \end{enumerate}
+
+    \item \textbf{Пусть A – коммутативное кольцо.}
+
+        Введем тензорное произведение двух $A$-модулей. Пусть $M$, $N$ – модули. Возьмём прямую сумму по их декартовому
+        произведению $F=\bigoplus_{(m,n)\in M\times n} A_{(m,n)}$, где $A_{(m,n)}=e_{m,n}A$ – формальные произведения.
+        Мы получим свободный модуль с базисом $\{e_{m,n}\}_{(m,n)\in M\times N}$. Возьмём его подмодуль $F'=\langle
+        e_{a+b\lambda,n+m\mu}-e_{a,n}-e_{a,m}\mu-e_{b,n}\lambda-e_{b,m}\lambda\mu\rangle_{a,b\in M,\,m,n\in M,\,\lambda,\mu\in A}$.
+        Тогда $M\otimes_A N=F/F'$, пусть $\pi:F\mapsto F/F'$ – каноническая проекция, тогда введем обозначение
+        $m\otimes n = \pi(e_{m,n})$.
+
+
+        \begin{enumerate}
+            \item \textbf{Предположим, что $A^{\oplus n}\cong A^{\oplus m}$ для некоторых $n,m\geq1$. Докажите, что $n=m$.}
+                Давайте возьмём и тензорно это умножим на поле $F=A/I$, где $I$ – некий максимальный идеал. Тогда если выделить
+                в $A^{\oplus n}$ канонический базис $\{e_i\}_{i\in\lBrack0,n\rBrack}$, то нетрудно заметить, что $(e_i\otimes 1_F)_
+                {i\in\lBrack0,n\rBrack}$ порождает $A^{\oplus n}\otimes F$, но также очевидно, что умножение на скаляры происходит
+                с точностью до добавления элемента идеала $I$, так как $(e_i\otimes 1)\cdot(a+b)=e_i\otimes [a+b]_I=
+                e_i\otimes [a]$, если $b\in I$, а тогда можно факторизовать скаляры до $A/I$ и получить
+                $(A/I)^{\oplus n}$ с каноническим базисом над $A/I$ $\{u_i\}_{i\in\lBrack0,n\rBrack}$ и хочется сказать, что $f$ пройдя по тем же преобразованиям
+                станет изоморфизмом векторных пространств $F^n$ и $F^m$, а значит $n=m$. Теперь обозначим некоторые
+                сопутствующие морфизмы и проверим корректность рассуждений.
+                \begin{align*}
+                    &f:A^{\oplus m}\longrightarrow A^{\oplus n}\\
+                    &\phi_m:A^{\oplus m}\longrightarrow A^{\oplus m}\otimes A/I=a\mapsto a\otimes 1\\
+                    &\psi_m:A^{\oplus m}\otimes (A/I)\longrightarrow (A/I)^{\oplus m}=e_i\otimes[a]\mapsto u_i[a]
+                \end{align*}
+                где $f$ – изоморфизм модулей. Корректность и и линейность $\phi_n$ тривиальна.
+
+
+                Покажем, что по $\phi_n$ и $\phi_m$ можно индуцировать изоморфизм $f'$,
+                то есть следующую диаграмму можно дополнить до коммутативной
+                \begin{center}
+                \begin{tikzcd}
+                    A^{\oplus m} \ar{r}{f}\ar{d}{\phi_m}& A^{\oplus n}\ar{d}{\phi_n}\\
+                    A^{\oplus m}\otimes A/I \ar[dashed]{r}{f'} & A^{\oplus n}\otimes A/I\\
+                    \bigoplus_{i\in A^{\oplus m}\times A/I}A_i \ar[dashed]{r}{f''}\ar{u}{\pi_m} & \bigoplus_{i\in A^{\oplus n}\times A/I}A_i\ar{u}{\pi_n}
+                \end{tikzcd}
+                \end{center}
+                для этого построим сначала $f'' = e_{a,k}\mapsto e_{f(a),k}$, морфизм естественно продолжается
+                единственным образом из свободного модуля если заданы образы для элементов базиса. Более того $f''$
+                однозначно сопоставляет элементы базисов двух свободных модулей, а значит $f''$ – изоморфизм.
+                
+                Теперь спроецируем $f''$ в стрелку между тензорными пространствами. Для этого необходимом и достаточно, 
+                чтобы $f[\text{Ker}(\pi_m)]\subseteq\text{Ker}(\pi_n)$. Это достаточно проверить только для порождающих
+                элементов из $\text{Ker}(\pi_m)$
+                \begin{align*}
+                    &f''(e_{a+b\lambda,n+m\mu}-e_{a,n}-e_{a,m}\mu-e_{b,n}\lambda-e_{b,m}\lambda\mu)=\\
+                    &e_{f(a)+f(b)\lambda,n+m\mu}-e_{f(a),n}-e_{f(a),m}\mu-e_{f(b),n}\lambda-e_{f(b),m}\lambda\mu\in
+                    \text{Ker}(\pi_n)
+                \end{align*}
+                Тогда мы получаем корректно определенную проекцию $f'=a\otimes k\mapsto f(a)\otimes k$ и это ровно то,
+                что мы хотели и оно корректно. Проверим, что полученная стрелка обратима. Это очевидно, так как по тем
+                же соображениям можно построить обратную стрелку $f'^{-1}=a\otimes k\mapsto f^{-1}(a)\otimes k$ так
+                как f – изоморфизм.
+
+        \end{enumerate}
 
 \end{enumerate}
 
