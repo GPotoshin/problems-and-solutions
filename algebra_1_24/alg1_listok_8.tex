@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[a4paper,left=3cm,right=3cm,top=1cm,bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[russian]{babel}
+
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{graphicx}
+\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+\setlength{\parindent}{0mm}
+
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\usepackage{unicode-math}
+\setmathfont{Cambria Math}
+
+\newcommand{\mymat}{\mathcal{M\mkern-3mu a\mkern-0.3mu t}}
+
+
+\title{
+\textit{\small{Георгий Потошин, 2024}}\\
+\vspace{0.3ex}
+\textit{\huge{Алгебра I, листочек 8}}\vspace{1ex}
+}
+
+\date{\vspace{-10ex}}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item \textbf{Пусть $A,B\in\mymat_{n\times n}(K)$, $A$ и $B$ нильпотентны и $AB=BA$. Докажите,
+        что $A+B$, $AB$ нильпотентны. Верно ли это без условия $AB = BA$?}
+
+        Пусть $A^n=0$ и $B^m=0$, тогда в силу того, что они коммутируют мы получим $(AB)^{\max(m,n)}=A^{\max(m,n)}
+        B^{\max(m,n)}=00=0$. Также $(A+B)^{m+n+1}=0$, так как по формуле бинома Ньютона в каждом слагаемом либо степень
+        $A$, либо степень $B$ будет больше зануляющей степени, а значит будет сумма нулей. Формула бинома работает, так
+        как слагаемые коммутируют. Без этого условия это не верно, так как например есть матричные единицы $e_{1,2}$ и
+        $e_{2,1}$, они нильпотенты, но их сумма нет, так как в случае размера $2\times 2$ их сумма – обратимая матрица
+        с детерминантом -1.
+        
+    \item \textbf{Докажите формулу для определителя матрицы Вандермонда:}
+        \[\text{det}\left(\begin{array}{ccccc}
+            1 & x_0 & x_0^2 & \ldots & x_0^n\\
+            1 & x_1 & x_1^2 & \ldots & x_1^n\\
+            \ldots & \ldots & \ldots & \ldots & \ldots\\
+            1 & x_n & x_n^2 & \ldots & x_n^n\end{array}
+            \right)=\prod_{0\leq j\le i\leq n}(x_i-x_j)\]
+
+        Обозначим это определитель через $V(x_0,\ldots, x_n)$. Заметим, что
+        \[\text{det}\left(\begin{array}{ccccc}
+            1 & x_0 & x_0^2 & \ldots & x_0^n\\
+            1 & x_1 & x_1^2 & \ldots & x_1^n\\
+            \ldots & \ldots & \ldots & \ldots & \ldots\\
+            1 & x_n & x_n^2 & \ldots & x_n^n\end{array}
+            \right)
+            = \text{det}\left(\begin{array}{ccccc}
+            1 & 0 & 0 & \ldots & 0\\
+                1 & x_1-x_0 & x_1(x_1-x_0) & \ldots & x_1^{n-1}(x_1-x_0)\\
+            \ldots & \ldots & \ldots & \ldots & \ldots\\
+            1 & x_n-x_0 & x_n(x_n-x_0) & \ldots & x_n^{n-1}(x_n-x_0)\end{array}
+            \right)\]
+        Этого можно добиться, последовательно заменяя для каждого $i=n..1$ в порядке убывания столбец
+        $S_i$ на $S_i-x_1S_{i-1}$, столбцы мы нумеруем с 0, по степени $x_0$. Такая замена очевидно не
+        меняет детерминанта. Так как мы привели матрицу к нижнетреугольному блочному виду, то её 
+        определитель это произведение определителей блоков, а в нашем случае определитель нижнего блока
+        \[
+            V(x_0,\ldots,x_n)
+            = \text{det}\left(\begin{array}{cccc}
+            x_1-x_0 & x_1(x_1-x_0) & \ldots & x_1^{n-1}(x_1-x_0)\\
+            \ldots & \ldots & \ldots & \ldots\\
+            x_n-x_0 & x_n(x_n-x_0) & \ldots & x_n^{n-1}(x_n-x_0)\end{array}\right)
+        \]
+        По полилинейности вынесем общий множителей в каждой строке и получим
+        \[
+            V(x_0,\ldots,x_n) = \prod_{i=1}^n (x_i-x_0)
+            \text{det}\left(\begin{array}{cccc}
+            1 & x_1 & \ldots & x_1^{n-1}\\
+            \ldots & \ldots & \ldots & \ldots\\
+            1 & x_n & \ldots & x_n^{n-1}\end{array}\right)
+            = \prod_{i=1}^n (x_i-x_0)V(x_1,\ldots,x_n) 
+        \]
+
+        Продолжив дальше рекурсивный спуск по индукции мы получим искомую формулу.
+        
+    \item \textbf{Пусть $A\in\mymat_{m\times n}(K)$. Покажите, что если для любого $X\in\mymat_{n×m}(K)$
+        имеем $\textnormal{tr}(AX) = 0$, то $A = 0$.}
+
+        Заметим, что так как это будет в частности верно для матричных единиц, то $\text{tr}(Ae_{i,j})
+        =\text{tr}(\sum_k A_{k,i}e_{i,j})=A_{j,i}=0$, так как мы можем выбирать $1\leq i\leq n$ и 
+        $1\leq j\leq m$, то все коэффициенты матрицы должны быть нулями.
+        
+    \item \textbf{Пусть $A\in\mymat_{n\times n}(K)$. Покажите, что если $\textnormal{rk}(A)=n$, то
+        $\textnormal{rk}(\widehat A) = n$; если $\textnormal{rk}(A)=n−1$, то $\textnormal{rk}(\widehat A)=1$;
+        если $\textnormal{rk}(A)\leq n − 2$, то $\widehat A= 0$.}
+
+        Если $\text{rk}(A)=n$, то $\det(A)!=0$, тогда $A^{-1}=\widehat A/\det(A)$. $\widehat A$ обратима,
+        а значит её ранг $n$.
+
+        Ecли $\text{rk}(A)=n-1$, то $A\widehat A= \widehat AA = 0$, первое равенство означает, что
+        $\text{im}(\widehat A)\leq\text{ker}(A)$, но так как $\text{dim}\text{ker}(A)=1$, то
+        $\text{rk}(\widetilde A)=1\text{ или }0$. Но так как в $A$ есть $n-1$ линейно независимых 
+        строк, то в $A$ можно выкинуть лишнюю строку и получить матрицу $A'$, её ранг по прежнему будет
+        $n-1$. Тогда в $A'$ найдутся $n-1$ линейно независимых столбцов, выкинув лишний мы получим
+        минорную матрицу $A''$, чей ранг по прежнему $n-1$, а значит её детерминант ненулевой, тогда
+        матрица $\widehat A$ ненулевая и её ранг не может быть нулевым, а значит он 1.
+
+        Пусть $rk(A)\leq n-2$, так как ранг минорной матрицы не может превышать ранг матрицы,
+        то ранг любого минорной будет $\leq n-2$, а значит детерминанта минорной матрицы нуль и
+        $\widehat A=0$.
+
+    \item \textbf{Покажите, что $\textnormal{rk}(AB)\leq\textnormal{rk}(A)$; $\textnormal{rk}(AB)\leq
+        \textnormal{rk}(B)$; $\textnormal{rk}(A+B)\leq\textnormal{rk}(A)+\textnormal{rk}(B)$.}
+
+        \[\text{rk}(AB)=\text{dim}(AB\mathbb{k}^m)\leq\text{dim}(A\mathbb{k}^n)=\text{rk}(A)\]
+        \[\text{rk}(AB)=\text{rk}(B^TA^T)\leq\text{rk}(B^T)=\text{rk}(B)\]
+        \[\text{rk}(A+B)=\text{dim}((A+B)\mathbb{k}^n)\leq\text{dim}(A\mathbb{k}^n+B\mathbb{k}^n)\leq
+        \text{dim}(A\mathbb{k}^n)+\text{dim}(B\mathbb{k}^n)=\text{rk}(A)+\text{rk}(B)\]
+
+
+\end{enumerate}
+
+\end{document}
